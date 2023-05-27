@@ -16,10 +16,9 @@
     <title>{% block title %} {% endblock %} </title>
     <link rel="shortcut icon" type="image/png" href="{% static 'shop/cart.png' %}">
     <style>
-        .navbar-nav .nav-item a.nav-link:hover{
+        .navbar-nav .nav-item a.nav-link:hover {
             background-color: rgb(97, 97, 97);
-        } 
-
+        }
     </style>
 
 </head>
@@ -59,6 +58,9 @@
             <button type="button" id="popcart" class="btn btn-secondary mx-2" data-container="body"
                 data-toggle="popover" data-placement="bottom" data-html="true" data-content="This is your cart. ">
                 Cart (<span id="Cart">0</span>)
+
+                <a href='/shop/checkout'><button class='btn btn-primary' id='checkout'>Checkout</button></a>
+                <button class='btn btn-primary mx-1' onclick='clearCart()' id='clearCart'>Clear Cart</button> "
 
         </div>
     </nav>
