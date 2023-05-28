@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product, Contact
+from .models import Product, Contact, Order
 from math import ceil
 
 # Create your views here.
@@ -44,5 +44,17 @@ def prodView(request, myid):
     return render(request, 'shop/productview.html', {'product' : product[0]})
 
 def checkout(request):
+    if request.method == "POST":
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        address = request.POST.get('address', '')
+        address_2 = request.POST.get('address_2', '')
+        city = request.POST.get('city', '')
+        state = request.POST.get('state', '')
+        zip = request.POST.get('zip', '')
+        phone = request.POST.get('phone', '')
+        orders = Order(name=name, email=email, address=address, address_2=address_2, city=city, state=state, zip=zip, phone=phone)
+        orders.save()
+        
     return render(request, 'shop/checkout.html')
 

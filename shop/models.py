@@ -32,7 +32,7 @@ class Contact(models.Model):
 
 
     
-class Orders(models.Model):
+class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
     items_json = models.CharField(max_length=500)
     name = models.CharField(max_length=50)
