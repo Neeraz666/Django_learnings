@@ -29,7 +29,8 @@
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Address line 2</label>
-                <input type="text" class="form-control" name="address_2" id="address_2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" name="address_2" id="address_2"
+                    placeholder="Apartment, studio, or floor">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -46,7 +47,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputZip">Phone Number</lab        desc = request.POST.get('desc', '')el>
+                <label for="inputZip">Phone Number</label>
                 <input type="tel" class="form-control" name="phone" id="phone">
             </div>
             <button type="submit" class="btn btn-primary">Place Order</button>
@@ -56,29 +57,42 @@
 {% endblock %}
 {% block js %}
 <script>
-if (localStorage.getItem('cart') == null) {
-    var cart = {};
-} else {
-    cart = JSON.parse(localStorage.getItem('cart'));
-}
-console.log(cart);
-var sum = 0;
-if ($.isEmptyObject(cart)) {
-    //if object is empty
-    mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
-    $('#items').append(mystr);
-} else {
-    for (item in cart) {
-        let name = cart[item][1];
-        let qty = cart[item][0];
-        sum = sum + qty;
-        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
-                    ${name}
-                    <span class="badge badge-primary badge-pill">${qty}</span>
-                </li>`
-        $('#items').append(mystr);
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    } else {
+        cart = JSON.parse(localStorage.getItem('cart'));
     }
-}
-document.getElementById('cart').innerHTML = sum;
+    console.log(cart);
+    var sum = 0;
+    if ($.isEmptyObject(cart)) {
+        //if object is empty
+        mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
+        $('#items').append(mystr);
+    } else {
+        for (item in cart) {
+            let name = cart[item][1];
+            let qty = cart[item][0];
+            sum = sum + qty;
+            mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${name}
+                        <span class="badge badge-primary badge-pill">${qty}</span>
+                    </li>`
+            $('#items').append(mystr);
+        }
+    }
+    const cartElement = document.getElementById('cart');
+    if (cartElement) {
+        cartElement.innerHTML = sum;
+    }
+
+    $('#itemsJson').val(JSON.stringify(cart));
+    var idValue = '{{id}}';
+    if ('{{done}}') {
+        alert('Thanks for ordering with us. Your order is ${idValue}. Use it to track your order using our order tracker');
+        localStorage.clear();
+        document.location = "/shop";
+    }
+
+
 </script>
 {% endblock %}

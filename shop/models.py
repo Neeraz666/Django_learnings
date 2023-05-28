@@ -34,14 +34,14 @@ class Contact(models.Model):
     
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True)
-    items_json = models.CharField(max_length=500)
+    itemsJson = models.CharField(max_length=500)
     name = models.CharField(max_length=50)
     email= models.CharField(max_length=50)
     address = models.CharField(max_length=50)
     address_2= models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
-    zip = models.IntegerField()
+    zip = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
 
     def __str__(self):
