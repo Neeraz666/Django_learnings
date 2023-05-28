@@ -45,4 +45,4 @@ def prodView(request, myid):
 
 def checkout(request):
     return render(request, 'shop/checkout.html')
-    
+

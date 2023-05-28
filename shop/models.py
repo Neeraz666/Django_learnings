@@ -16,6 +16,9 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
     
+
+
+    
 class Contact(models.Model):
     msg_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
@@ -25,3 +28,22 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+    
+class Orders(models.Model):
+    order_id = models.AutoField(primary_key=True)
+    items_json = models.CharField(max_length=500)
+    name = models.CharField(max_length=50)
+    email= models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+    address_2= models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zip = models.IntegerField()
+    phone = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name + "'s Order"
+    
