@@ -57,7 +57,7 @@ ROOT_URLCONF = 'myawsmcart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['myawsmcart/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

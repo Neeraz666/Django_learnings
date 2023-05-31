@@ -86,9 +86,8 @@
     }
 
     $('#itemsJson').val(JSON.stringify(cart));
-    var idValue = '{{id}}';
     if ('{{done}}') {
-        alert('Thanks for ordering with us. Your order is ${idValue}. Use it to track your order using our order tracker');
+        alert("Thanks for ordering with us. Use it to track your order using our order tracker");
         localStorage.clear();
         document.location = "/shop";
     }
