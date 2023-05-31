@@ -4,12 +4,10 @@
 
 {% block css %}
 <style>
-
-#prodimg {
+  #prodimg {
     height: 355px;
     width: 355px;
-}
-
+  }
 </style>
 
 {% endblock %}
@@ -18,22 +16,22 @@
 {% load static %}
 
 <div class="container my-4">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="row">
-                <img src="/media/{{product.image}}" id = "prodimg" alt="">
-            </div>
-            <div class="row my-3">
-                <button class="btn btn-primary mx-5">Buy Now</button>
-                <button class="btn btn-primary mx-4">Add to Cart</button>
-            </div>
-        </div>
-
-        <div class="col-md-8">
-            <h5>{{product.product_name}}</h5>
-            <p>{{product.product_desc}}</p>
-        </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <img src="/media/{{product.image}}" id="prodimg" alt="">
+      </div>
+      <div class="row my-3">
+        <button class="btn btn-primary mx-5">Buy Now</button>
+        <button class="btn btn-primary mx-4">Add to Cart</button>
+      </div>
     </div>
+
+    <div class="col-md-8">
+      <h5>{{product.product_name}}</h5>
+      <p>{{product.product_desc}}</p>
+    </div>
+  </div>
 
 
 </div>
@@ -61,13 +59,13 @@
     var idstr = this.id.toString();
     console.log("Clicked " + idstr);
 
-    if (cart[idstr] != undefined){
-      cart[idstr] += 1; 
+    if (cart[idstr] != undefined) {
+      cart[idstr] += 1;
     }
 
-    else{
-      cart[idstr] = 1; 
-    } 
+    else {
+      cart[idstr] = 1;
+    }
 
     console.log(cart);
 
